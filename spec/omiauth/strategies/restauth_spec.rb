@@ -6,13 +6,13 @@ describe OmniAuth::Strategies::Restauth do
   let(:parsed_response) { double('ParsedResponse') }
   let(:response) { double('Response', parsed: parsed_response) }
 
-  let(:enterprise_site)           { 'https://some.other.site.com/api/v3' }
+  let(:enterprise_site)           { '192.168.1.5:8080' }
   let(:enterprise_authorize_url)  { '/oauth/authorize' }
   let(:enterprise_token_url)      { '/oauth/access_token' }
 
   let(:gitlab_service) { OmniAuth::Strategies::Restauth.new({}) }
   let(:enterprise) do
-    OmniAuth::Strategies::Restauth.new('GITLAB_KEY', 'GITLAB_SECRET',
+    OmniAuth::Strategies::Restauth.new('gitlabkey', 'gitlabsecret',
                                      client_options: {
                                          site: enterprise_site,
                                          authorize_url: enterprise_authorize_url,
@@ -31,7 +31,7 @@ describe OmniAuth::Strategies::Restauth do
     context 'with defaults' do
       subject { gitlab_service.options.client_options }
 
-      its(:site) { is_expected.to eq 'https://gitlab.com' }
+      its(:site) { is_expected.to eq '192.168.1.5:8080' }
       its(:authorize_url) { is_expected.to eq '/oauth/authorize' }
       its(:token_url) { is_expected.to eq '/oauth/token' }
     end
@@ -47,7 +47,7 @@ describe OmniAuth::Strategies::Restauth do
 
   describe '#raw_info' do
     it 'sent request to current user endpoint' do
-      expect(access_token).to receive(:get).with('/api/v3/user').and_return(response)
+      expect(access_token).to receive(:get).with('/me').and_return(response)
       expect(subject.raw_info).to eq(parsed_response)
     end
   end
