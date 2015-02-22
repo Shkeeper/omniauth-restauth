@@ -5,7 +5,7 @@ module OmniAuth
     class Restauth < OmniAuth::Strategies::OAuth2
 
       option :client_options, {
-                                site: 'https://gitlab.com',
+                                site: '192.168.1.5:8080',
                                 authorize_url: '/oauth/authorize',
                                 token_url: '/oauth/token'
                             }
@@ -25,7 +25,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('/api/v3/user').parsed
+        @raw_info ||= access_token.get('/me').parsed
       end
     end
   end
