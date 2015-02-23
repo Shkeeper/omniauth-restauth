@@ -25,6 +25,4 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rack-test'
   gem.add_development_dependency 'simplecov'
   gem.add_development_dependency 'webmock'
-  gem.add_development_dependency "bundler", "~> 1.7"
-  gem.add_development_dependency "rake", "~> 10.0"
 end
