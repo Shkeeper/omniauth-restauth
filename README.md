@@ -15,19 +15,19 @@ And then execute:
 ## Configure:
 
 Configure GitLab
-
+```
   cd /home/git/gitlab
 
   sudo -u git -H nano config/gitlab.yml
-
+```
 
 Add the provider configuration:
 
-
+```
 - { name: 'omniauth-restauth', app_id: 'YOUR_APP_ID',
    app_secret: 'YOUR_APP_SECRET',
    args: { scope: 'trusted'} }
-
+```
 
 Not Tested(but could work):
 ```
