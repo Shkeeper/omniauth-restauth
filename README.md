@@ -50,9 +50,13 @@ Save the configuration file.
 ## If Not Tested Variant does not work:
 Fork it
 Change Information in restauth.rb to the OpticalChallengeResponse App URI.
+
 2. Create your feature branch (`git checkout -b my-new-feature`)
+
 3. Commit your changes (`git commit -am 'Add some feature'`)
+
 4. Push to the branch (`git push origin my-new-feature`)
+
 5. Create new Pull Request
 
 
