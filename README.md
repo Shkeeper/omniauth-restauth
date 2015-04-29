@@ -30,13 +30,13 @@ Add the provider configuration:
 
 
 Not Tested(but could work):
-
+```
 - { name: 'omniauth-restauth', app_id: 'YOUR_APP_ID',
    app_secret: 'YOUR_APP_SECRET',
    client_options: {site: 'OPTICAL_CHALLENGE_RESPONSE_URI' , authorize_url: '/oauth/authorize', token_url: '/oauth/token'},
    args: { scope: 'trusted'}
    }
-
+```
 
 
 Change 'YOUR_APP_ID' to the client ID from the OpticalChallengeResponse App.
